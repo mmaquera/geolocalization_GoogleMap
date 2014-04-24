@@ -1,0 +1,82 @@
+
+body{
+	font-family: 'Arial';
+	font-size: 16px;
+}
+
+section article{
+	display: inline-block;
+	vertical-align: top;
+}
+
+section #panel{
+	height: 600px;
+	width: 30%;
+}
+
+#map_canvas{
+	height: 600px;
+	margin: 0 0 0 -4px;
+	width: 70%;
+}
+
+#sub-panel{
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	width: 100%;
+}
+
+#sub-panel div{
+	display: inline-block;
+	vertical-align: top;
+}
+
+#wrapper{
+	width: 100%;
+}
+
+ul.ui-autocomplete{
+    font-size: 79%;
+    max-height: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 20px;
+} 
+
+#adress{
+	height: 500px;
+	overflow: scroll;
+}
+
+#adress p{
+	font-size: 14px;
+	margin: 0;
+	padding: 10px 0;
+}	
+
+
+#adress p:hover{
+	background: rgb(241, 223, 185);
+}
+
+#adress a{
+	text-decoration: none;
+}
+
+#image{
+	height: 30px;
+	right: 100px;
+	width: 30px; 
+	z-index:1000000000;
+}
+
+#figure_image{
+	background: white;
+	height: 30px;
+	opacity: 0.7;
+	position: absolute;
+	right: 100px;
+	top: 50px; 
+	width: 30px;
+}

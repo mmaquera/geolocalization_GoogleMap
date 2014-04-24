@@ -1,0 +1,62 @@
+{% load static from staticfiles %}
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	
+	<link rel="stylesheet" href="{% static "css/normalize.css" %}">
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+	<link rel="stylesheet" href="{% static "css/style.css" %}">
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+	<script src="{% static "js/script.js" %}" ></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+</head>
+<body>
+	<div id="wrapper">
+		<div id="sub-panel">
+			<div>
+				<label for="ubigeo">Ubigeo</label>
+				<input type="hidden" id="id_ubigeo">
+				<input type="text" id="ubigeo" size="60">
+			</div>
+			<div>
+				<label for="direccion">Direccion</label>
+				<input type="text" id="direccion" size="60">
+				<button id="geoCoding" onclick="send_peticion()">Enviar</button>
+			</div>
+		</div>
+		<section>
+			<article id="panel">
+				<div id="adress">
+				</div>
+				<div>
+					<input type="button" value="Total" onclick="ZoomTotal()">
+					<p>
+						<label for="xGeocoding">Latitud :</label>
+						<input type="text" id="xGeocoding" name="xGeocoding" placeholder="Latitud">
+					</p>
+					<p>
+						<label for="yGeocoding">Longitud :</label>
+						<input type="text" id="yGeocoding" name="xGeocoding" placeholder="Longitud">
+					</p>
+					<form action="." method="POST">
+						{% csrf_token %}
+						<input type="hidden" id="adress_form" name="adress_form" >
+						<input type="hidden" id="lat_form" name="lat_form" >
+						<input type="hidden" id="lng_form" name="lng_form" >
+						<button type="submit">Guardar Posicion</button>	
+					</form>
+				</div>
+			</article>
+			<article id="map_canvas">
+			</article>
+			<figure id="figure_image">
+				<img id="image" src="{% static "img/common_pin.png" %}" alt="">
+			</figure>
+		</section>
+	</div>
+</body>
+</html>
