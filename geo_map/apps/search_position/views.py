@@ -7,10 +7,9 @@ from django.core import serializers
 
 from django.db.models import Q
 
-import json
-
 from suds.client import Client
-
+import json
+import urllib
 
 def home(request):
 	if request.method == 'GET':
@@ -34,7 +33,6 @@ def home(request):
 			tbPositionSelect.save()
 			return HttpResponseRedirect('/')
 	
-
 def autocomplete_ubigeo(request):
 	if request.is_ajax():
 		param = request.GET.get('term', '')
@@ -52,11 +50,6 @@ def autocomplete_ubigeo(request):
 		return HttpResponse(data, mimetype="application/json")
 	else:
 		return Http404
-
-import xml.etree.ElementTree as ET
-import json
-import urllib
-from xml.dom import minidom
 
 def consume_web_service(request):
 	if request.is_ajax():
