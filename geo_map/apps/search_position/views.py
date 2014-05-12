@@ -37,7 +37,6 @@ def autocomplete_ubigeo(request):
 	if request.is_ajax():
 		param = request.GET.get('term', '')
 		param = param.upper()
-		#startswith ---> like 'text%'
 		datos = TbUbigeo.objects.filter(Q(ubigeo__startswith = param) | Q(nom_dist__startswith = param) | Q(nom_prov__startswith = param) | Q(nom_dpto__startswith = param))[:10]
 		result = []
 		for dato in datos:
@@ -55,8 +54,9 @@ def consume_web_service(request):
 	if request.is_ajax():
 		ubigeo = request.GET['ubigeo']
 		adress = request.GET['adress']
-		#url = 'http://192.168.2.206/GPEWebServices/GPEngineMethods.asmx?WSDL'
-		url = 'http://173.248.158.132:81/GPEServices/GPEngineMethods.asmx?WSDL'
+		
+		url = 'Web Service a consumir :P'
+		
 		client = Client(url)
 
 		geocodificarDireccion =  client.service.GeocodificarDireccion('1', ubigeo, adress)
